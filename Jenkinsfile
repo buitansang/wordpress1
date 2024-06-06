@@ -44,7 +44,15 @@ pipeline {
                         GRANT ALL ON wordpress.* TO 'wordpressuser'@'%';
                         FLUSH PRIVILEGES;
 MYSQL
-                        sudo mysql -u wordpressuser -ppassword wordpress < /tmp/wordpress1/web179_3.sql
+
+			should_import=\$(sudo mysql -u wordpressuser -ppassword wordpress <<Command
+			SELECT COUNT(*)
+			FROM information_schema.tables
+			WHERE table_schema = 'wordpress' AND table_name = 'wp_actionscheduler_actions';
+Command)
+                        if ! grep -q "1" <<< "\${should_import}"; then
+                            sudo mysql -u wordpressuser -ppassword wordpress < /tmp/wordpress1/web179_3.sql
+                        fi
                     """.stripIndent()
                     executeCommandRemote(this, command)
                 }
