@@ -45,12 +45,12 @@ pipeline {
                         FLUSH PRIVILEGES;
 MYSQL
 
-			should_import=\$(sudo mysql -u wordpressuser -ppassword wordpress <<Command
-			SELECT COUNT(*)
-			FROM information_schema.tables
-			WHERE table_schema = 'wordpress' AND table_name = 'wp_actionscheduler_actions';
-Command)
-                        if ! grep -q "1" <<< "\${should_import}"; then
+			sudo mysql -u wordpressuser -ppassword wordpress > result.txt <<COMMAND
+SELECT COUNT(*)
+FROM information_schema.tables
+WHERE table_schema = 'wordpress' AND table_name = 'wp_actionscheduler_actions';
+COMMAND
+                        if ! grep -q "1" result.txt; then
                             sudo mysql -u wordpressuser -ppassword wordpress < /tmp/wordpress1/web179_3.sql
                         fi
                     """.stripIndent()
