@@ -19135,7 +19135,7 @@ msgstr "Đăng ký"
 #: wp-includes/general-template.php:519 wp-login.php:1413
 #, gp-priority: normal
 msgid "Remember Me"
-msgstr "Tự động đăng nhập"
+msgstr "Tự động đăng nhập test cicd"
 
 #: wp-includes/general-template.php:380
 #: wp-includes/js/dist/block-library.js:18932
