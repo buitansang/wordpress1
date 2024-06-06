@@ -10276,7 +10276,7 @@ msgstr "Trước"
 #: wp-includes/general-template.php:517 wp-login.php:832 wp-login.php:1390
 #, gp-priority: normal
 msgid "Username or Email Address"
-msgstr "Tên người dùng hoặc Địa chỉ Email"
+msgstr "Tên người dùng hoặc Địa chỉ Email 123"
 
 #. translators: %s: "Search WordPress.org themes" button text.
 #: wp-includes/customize/class-wp-customize-themes-section.php:102
