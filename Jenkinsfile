@@ -69,6 +69,7 @@ COMMAND
                         # sudo curl -O https://wordpress.org/latest.tar.gz
                         # sudo tar xzvf latest.tar.gz
 			sudo rm -rf /var/www/html/
+   			sudo mkdir -p /var/www/html/
                         sudo cp -r /tmp/wordpress1/* /var/www/html/
                         sudo chown -R www-data:www-data /var/www/html/
                     """.stripIndent()
