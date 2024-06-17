@@ -14,7 +14,7 @@ pipeline {
         stage('Install Nginx') {
             steps {
                 script {
-                    localhostIP = "10.10.8.128"
+                    localhostIP = "192.168.1.5"
                     vmUsername = "sanghibui"
                     vmPassword = "12345sg2409"
 
